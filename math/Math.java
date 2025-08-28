@@ -45,19 +45,40 @@ class Math {
     //What are the math operators that we can use?
     //+ - * / %
 
+    
+
     //Try doing some math operations with numbers. How can we check to see if the math worked?
 
     //Create codes that will print the following:
 
     //Odd integers from 1 to 100, inclusive of both
-
+for(int i = 1;i<=100;i++){
+  if(i%2 != 0){
+    System.out.println(i);
+  }
+}
 
 
     //All multiples of 3 from 1 to 100
+    for(int i = 1; i<=100; i++)
+    {
+if(i%3 == 0)
+{
+  System.out.println(i);
+}
+
+
+    }
 
 
 
 
     //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
+  for(int x = 1000; x>=0; x -= 10){
+    if(x%3 == 0){System.out.println(x);
+    }
   }
-}
+  
+
+    }
+  }
