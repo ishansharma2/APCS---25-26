@@ -48,7 +48,24 @@ public class Roomba implements Directions {
 		
 		}
 		roomba.move();
-		for(int)
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.move();
+		for(int i=1; i<=6; i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.move();
+		for(int i=1; i<=3; i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.pickBeeper();
+		
+		
 
 
 		int totalBeepers = 0; // Need to move this somewhere else.
