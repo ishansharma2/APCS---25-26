@@ -28,7 +28,8 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		Robot roomba = new Robot(9,9,South,1000);
+		Robot roomba = new Robot(9,9,South,10000);
+		World.setDelay(5);
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -59,11 +60,19 @@ public class Roomba implements Directions {
 		roomba.move();
 		roomba.turnLeft();
 		roomba.move();
+		roomba.pickBeeper();
 		for(int i=1; i<=3; i++){
 			roomba.pickBeeper();
 		}
 		roomba.move();
 		roomba.pickBeeper();
+		roomba.turnLeft();
+		for(int i=1; i<=4; i++){
+			roomba.move();
+		}
+		for(int i=1; i<=6; i++){
+			roomba.pickBeeper();
+		}
 		
 		
 
