@@ -1,5 +1,8 @@
 package robot;
 
+
+package robot;
+
 import kareltherobot.*;
 
 public class Roomba implements Directions {
@@ -28,7 +31,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		Robot roomba = new Robot(9,9,South,0);
+		Robot roomba = new Robot(9,9,South,10000);
 		World.setDelay(5);
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -38,6 +41,41 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		for(int i=1; i<=7; i++){
+			roomba.pickBeeper();
+		
+		}
+		roomba.move();
+		roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.move();
+		for(int i=1; i<=6; i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.move();
+		roomba.pickBeeper();
+		for(int i=1; i<=3; i++){
+			roomba.pickBeeper();
+		}
+		roomba.move();
+		roomba.pickBeeper();
+		roomba.turnLeft();
+		for(int i=1; i<=4; i++){
+			roomba.move();
+		}
+		for(int i=1; i<=6; i++){
+			roomba.pickBeeper();
+		}
 		
 		
 
@@ -47,3 +85,4 @@ public class Roomba implements Directions {
 		return totalBeepers;
 	}
 }
+
