@@ -19,6 +19,7 @@ public class Driver implements Directions {
 
         World.readWorld(wrldName);
         World.setVisible(true);
+        
 
        
     }
