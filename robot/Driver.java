@@ -78,6 +78,42 @@ public class Driver implements Directions {
                         roomba.turnLeft();
                         clear = roomba.frontIsClear();
                     } else {
+                        area++;
+                       roomba.turnOff();
+                       System.out.println("Area of Room: " + area);
+                       System.out.println("Total Amount of Piles: " + total_piles + " piles");
+                       System.out.println("Total Beepers: " + total + " beepers");
+                       System.out.println("The largest pile's size: " + largest_pile + " beepers");
+                       System.out.println("Location of Largest Pile: (" + st + ", " + av + ")");
+                       System.out.println("Average pile size: " + (total / total_piles) + " beepers");
+                       System.out.println("Percent room dirty: " + ((total_piles * 100) / area) + "%");
+                   }
+               } else if (faceWest) {
+                   turnRight();
+                   clear = roomba.frontIsClear();
+                   if (clear) {
+                       area++;
+                       roomba.move();
+                       turnRight();
+                      
+                        if (clear) {
+                       area++;
+                       roomba.move();
+                       turnRight();
+                       clear = roomba.frontIsClear();
+                   } else {
+                       area++;
+                       roomba.turnOff();
+                       System.out.println("Area of Room: " + area);
+                       System.out.println("Total Amount of Piles: " + total_piles + " piles");
+                       System.out.println("Total Beepers: " + total + " beepers");
+                       System.out.println("The largest pile's size: " + largest_pile + " beepers");
+                       System.out.println("Location of Largest Pile: (" + st + ", " + av + ")");
+                       System.out.println("Average pile size: " + (total / total_piles) + " beepers");
+                       System.out.println("Percent room dirty: " + ((total_piles * 100) / area) + "%");
+
+                   } 
+                    
 
                     }
                 }
