@@ -41,11 +41,46 @@ public class Driver implements Directions {
                     scan = roomba.nextToABeeper();
                 }
 
-                
+                int beepers = 0;
+                piles = 0;
 
+                while (scan) {
+                    roomba.pickBeeper();
+                    total++;
+                    scan = roomba.nextToABeeper();
+                    beepers++;
+                    piles++;
 
+                    if (piles == 1) {
+                        total_piles += 1; // count this pile once
+                    }
+                    if (beepers > largest_pile) {
+                        largest_pile = beepers;
+                        st = roomba.street();
+                        av = roomba.avenue();
+                    }
+                }
 
+                clear = roomba.frontIsClear();
+            }
 
+            clear = roomba.frontIsClear();
+            boolean faceEast = roomba.facingEast();
+            boolean faceWest = roomba.facingWest();
+
+            if (clear == false) {
+                if (faceEast == true) {
+                    roomba.turnLeft();
+                    clear = roomba.frontIsClear();
+                    if (clear) {
+                        area++;
+                        roomba.move();
+                        roomba.turnLeft();
+                        clear = roomba.frontIsClear();
+                    } else {
+
+                    }
+                }
 
             }
         }
