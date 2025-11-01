@@ -14,7 +14,7 @@ public class PigLatinTranslator {
 
     
     public static String translate(String input) {
-        System.out.println("  -> translate('" + input + "')");
+        //System.out.println("  -> translate('" + input + "')");
 
         if (input == null) return "";
         String trimmed = input.trim();
@@ -34,17 +34,17 @@ public class PigLatinTranslator {
 
   
     private static String translateWord(String token) {
-        System.out.println("  -> translateWord('" + token + "')");
+        //System.out.println("  -> translateWord('" + token + "')");
 
         if (token.isEmpty()) return "";
 
-        // Strip trailing non-letters (keep internal hyphens)
+        
         int end = token.length();
         while (end > 0 && !isLetterOrHyphen(token.charAt(end - 1))) {
             end--;
         }
         String core = token.substring(0, end);
-        String trailing = token.substring(end); // punctuation/symbols to re-append
+        String trailing = token.substring(end); 
 
         if (core.isEmpty()) return trailing;
 
@@ -56,11 +56,11 @@ public class PigLatinTranslator {
         } else {
             int v = indexOfFirstVowel(core);
             if (v == -1) {
-                // No vowels: just append "ay"
+                
                 translatedCore = core + "ay";
             } else {
-                String remainder = core.substring(v);                 // keep original casing
-                String cluster = core.substring(0, v).toLowerCase();  // moved cluster lowercased
+                String remainder = core.substring(v);                 
+                String cluster = core.substring(0, v).toLowerCase();  
                 translatedCore = remainder + cluster + "ay";
             }
         }
@@ -106,3 +106,4 @@ public class PigLatinTranslator {
         return newFirst + s.substring(1);
     }
 }
+ 

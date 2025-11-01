@@ -3,7 +3,7 @@ package piglatin;
 public class App {
     public static void main(String[] args)
     {
-        /*  Introduction and TODO List
+       /* Introduction and 
 
         This project is setup with four main classes:
             1. App - the main application
@@ -42,6 +42,21 @@ public class App {
             Book output = PigLatinTranslator.translate(input);
             output.printlines(0,2);
             output.writeToFile("test.txt");
+        }
+
+        
+        if (score >= 12) {
+            System.out.println("All tests passed! Translating Romeo and Juliet...");
+
+            Book input = new Book();
+            input.readFromUrl("Romeo and Juliet", "https://www.gutenberg.org/cache/epub/1513/pg1513.txt");
+
+            Book output = PigLatinTranslator.translate(input);
+            output.writeToFile("./RomeoAndJuliet_PigLatin.txt");
+
+            System.out.println("Translation complete. File saved as RomeoAndJuliet_PigLatin.txt");
+        } else {
+            System.out.println("Please pass all tests before translating the full book.");
         }
     }
 }
