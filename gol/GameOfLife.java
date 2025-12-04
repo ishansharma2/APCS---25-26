@@ -81,4 +81,4 @@ public class GameOfLife implements Board {
         System.out.println();
     }
 }
-
+k
