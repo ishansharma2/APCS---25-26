@@ -3,13 +3,25 @@ package warmup;
 public class Main {
 
     public static void main(String[] args) {
+        int limit = 4000000;
+
+        int first =1;
+        int second =2;
+
         int sum = 0;
 
-        for (int i = 1; i < 1000; i++){
-            if (i % 3 == 0 || i % 5 == 0){
-                sum+=i;
+        while (second <= limit){
+            if(second % 2 ==0){
+                sum = sum + second;
             }
-            System.out.println(sum);
-        }
+            int next = first + second;
     }
+            first = second;
+            second = next;
+        
+        }     
+             System.out.println(sum);
+    }
+
+
 }
