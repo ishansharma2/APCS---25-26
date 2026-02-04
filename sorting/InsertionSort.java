@@ -2,7 +2,12 @@ package sorting;
 
 public class InsertionSort implements Sorter {
 
-    public void sort(int[] input) {
-        System.out.println("Insertion Sort!!!");
-    }
-}
+    @Override
+    public void sort(int[] data) {
+        long steps = 0;
+
+       
+        for (int pos = 1; pos < data.length; pos++) {
+            int item = data[pos];
+            steps++; 
+
