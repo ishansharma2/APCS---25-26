@@ -1,21 +1,23 @@
 package sorting;
-
 public class BubbleSort implements Sorter {
-
     public void sort(int[] input)
     {
-        // Loop for all elements in the array
-        for (int outer = 0; outer < input.length - 1; outer++) {
-            // Inner loop is one shorter for every outer loop.
-            // Each loop ensures that the largest item moves to the end.
-            for (int inner = 0; inner < input.length - outer - 1; inner++) {
-                // If the two elements are out of order, swap them.
-                if (input[inner] > (input[inner + 1])) {
-                    int temp = input[inner];
-                    input[inner] = input[inner + 1];
-                    input[inner + 1] = temp;
+        long steps = 0;
+        for (int pass = 0; pass < input.length - 1; pass++)
+        {
+            for (int spot = 0; spot < input.length - 1 - pass; spot++)
+            {
+                steps++;
+                if (input[spot] > input[spot + 1])
+                {
+                    int hold = input[spot];
+                    input[spot] = input[spot + 1];
+                    steps++;
+                    input[spot + 1] = hold;
+                    steps++;
                 }
             }
         }
+        System.out.println("BubbleSort steps: " + steps);
     }
 }
