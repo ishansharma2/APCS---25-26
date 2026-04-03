@@ -1,7 +1,6 @@
 package tower;
 
 public class TowerModel {
-
     // 2d array storing game state
     private IntegerStack[] towers;
 
@@ -14,58 +13,62 @@ public class TowerModel {
 
     /* This class implements a model of a tower of Hanoi game.
 
-        |    |    |
-        =    |    |
-       ===   |    |
-      =====  |    |
-     ------------------
-        0    1    2
+        | | |
+        = | |
+      === | |
+    ===== | |
+    ------------------
+      0 1 2
 
-     Example of a game of height three in the starting position.
-
+    Example of a game of height three in the starting position.
     */
-    public TowerModel(int height)
-    {
+    public TowerModel(int height) {
         towerHeight = height;
         towers = new IntegerStack[3];
         towers[0] = new IntegerStack(height);
         towers[1] = new IntegerStack(height);
         towers[2] = new IntegerStack(height);
 
-        for (int i=0; i<height; i++)
-        {
+        for (int i = 0; i < height; i++) {
             towers[0].push(height - i);
         }
     }
 
     // get the total number of disks
-    public int height()
-    {
+    public int height() {
         return towerHeight;
     }
 
-
     // Move one disk from the source stack to the destination stack.
-    public void move(int source, int destination)
-    {
+    public void move(int source, int destination) {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
-        // TODO!!
+
+        IntegerStack sourceTower = towers[source];
+        IntegerStack destinationTower = towers[destination];
+
+        int disk = sourceTower.peek();
+
+        // If source tower is empty, do nothing
+        if (disk == 0) {
+            return;
+        }
+
+        // If destination is empty or top disk is larger, move is legal
+        if (destinationTower.peek() == 0 || destinationTower.peek() > disk) {
+            destinationTower.push(sourceTower.pop());
+        }
     }
 
     // Helper method to nicely print the current model state.
-    public void print()
-    {
+    public void print() {
         System.out.print("Print #" + ++printCounter + " Towers of Hanoi\n");
-
-        for (int layer = towerHeight-1; layer >= 0; layer--){
+        for (int layer = towerHeight - 1; layer >= 0; layer--) {
             System.out.print("\n");
             for (int tower = 0; tower < towers.length; tower++) {
                 int value = towers[tower].get(layer);
-                if (value == 0)
-                {
+                if (value == 0) {
                     System.out.print(" |");
-                } else
-                {
+                } else {
                     System.out.print(" " + value);
                 }
             }
@@ -78,13 +81,11 @@ public class TowerModel {
     }
 
     // Test instrumentation
-    public IntegerStack[] getTowers()
-    {
+    public IntegerStack[] getTowers() {
         return towers;
     }
 
-    public int getHeight()
-    {
+    public int getHeight() {
         return towerHeight;
     }
 }
